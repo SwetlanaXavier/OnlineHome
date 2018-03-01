@@ -60,7 +60,7 @@
      }
     %>
        
-        <h1><font color="blue"><center>LOGIN</center></font></h1>
+        <h1><font color="blue"><center>USER LOGIN</center></font></h1>
          <form name="frmlogin">
             
                    <table class="table table-hover" align="center">
@@ -82,10 +82,13 @@
                
                 <tr><td colspan="2" align="center">
                         <input type="submit" name="btnsubmit" value="LOGIN">
-                        <input type="submit" name="btn_reset" formaction="GuestHome.jsp" value="CANCEL">
+                        <input type="submit" name="btn_reset" formaction="initialwebpage.jsp" value="CANCEL">
                     </td>
                 </tr>
              
+                
+                 <tr><td><a href="#">Forget Password...</a></td></tr>
+
                 
             </table>
         </form>

@@ -49,7 +49,7 @@
                        <h3>Contact NO:<%=Contact%></h3>
                        <h3>Type of Work:<%=Type%></h3>
                        <h3>EXPERIENCE:<%=Experience%></h3>
-                       <h3><a href="TechDetails.jsp">view more details...</a></h3>
+                       <h3><a href="TechnicianDetails.jsp?aid=<%=TechId%>">view more details...</a></h3>
                    </td>
                    <%
                    i++;

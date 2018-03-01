@@ -24,7 +24,10 @@
              <a href="NewTechniciansList.jsp">Technician Registration Approval</a><br>
             <a href="TechnicianApprovedList.jsp">View Technician Approved list</a><br>
             <a href="TechnicianRejectedList.jsp">View Technician Rejection List</a><br><br>
-                          <a href="PropertySellingApprovals.jsp">Property Approval</a>
+            <a href="NewPropertyLists.jsp">Property Approval</a><br>
+            <a href="PropertyApprovedList.jsp">View Property Approved List</a><br>
+            <a href="PropertyRejectedList.jsp">View Property Rejection List</a><br><br>
+                          
               
     </body>
 </html>

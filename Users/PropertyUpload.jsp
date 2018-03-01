@@ -108,13 +108,38 @@ if(isMultipart)
             }
             }
            
+           if(field_name.equals("txtproof"))
+           {
+           String ext=file_name.substring(file_name.lastIndexOf("."));
+            //setting path to store image
+            File proj_path=new File(config.getServletContext().getRealPath("/"));
+            String file_path=proj_path.getParentFile().getParentFile().getPath()+"\\web\\Users\\PropertyProof\\";
+            Random r=new Random();
+             int r_num=r.nextInt(1111)+999;
+             
+            pf="Proof_"+r_num+ext;
+            //creating a file object
+            savedFile=new File(file_path+pf);
+            try
+            {
+                //writing the file object
+                f_item.write(savedFile);               
+                
+            }
+            catch(Exception ex)
+            {
+                out.println(ex);
+            }
+            }
+           
+           
               
        }
            
            }
     //Strinh str1="insert into tbl_user ()";
-    String str1="insert into tbl_property(property_image,property_name,district_id,property_placedetails,property_rate,property_sqft,no_of_bedrooms,no_of_bathrooms,property_description)"
-            + "values('"+fn+"','"+value[0]+"','"+value[1]+"','"+value[2]+"','"+value[3]+"','"+value[4]+"','"+value[5]+"','"+value[6]+"','"+value[7]+"')";
+    String str1="insert into tbl_property(property_image,constructiontype_id,district_id,property_placedetails,property_rate,property_sqft,property_description,property_proof)"
+            + "values('"+fn+"','"+value[0]+"','"+value[1]+"','"+value[2]+"','"+value[3]+"','"+value[4]+"','"+value[5]+"','"+pf+"')";
   
    out.println(str1);
    

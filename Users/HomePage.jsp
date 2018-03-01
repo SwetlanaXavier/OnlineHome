@@ -29,6 +29,7 @@
         <h3 align="center"><a href="ViewBuilders.jsp">View Builders</a></h3>
         
         <h3 align="center"><a href="ViewTechnicians.jsp">View Technicians</a></h3>
+        <h3 align="center"><a href="ViewOwmProposal.jsp">View Owm Proposal</a></h3>
         
     </body>
 </html>

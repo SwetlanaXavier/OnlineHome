@@ -19,7 +19,22 @@
             <table  align="center">
                   <tr>
                     <td>Property Name </td><td>
-                        <input type="text" name="txtname" required=""  >
+                         <select name="property">
+                    <option value="selpro">--Select--</option>
+                    <%
+                        String selP="select *from tbl_constructiontype";
+                         ResultSet rs2=obj.selectData(selP);
+                        while(rs2.next())
+                        {
+                    %>
+                    <option value="<%=rs2.getString("constructiontype_id")%>" >
+                      <%=rs2.getString("constructiontype_type")%>      
+                      </option>
+                    <%
+                       }
+                    %>
+                </select>
+                    </td>
                     </td>
                 </tr>
                 <tr>
@@ -27,6 +42,7 @@
                     <input type="file" name="txtphoto" >
                      </td>
                 </tr>
+                
                 <tr>
                     <td>District</td><td>
                          <select name="district">
@@ -64,17 +80,12 @@
                 </tr>
                     </td>
                 </tr>
-                <tr>
-                    <td>No Of Bedrooms</td><td>
-                      <input type="text" name="txtnobed" required=""   >
+               <tr>
+                    <td>Upload Proof</td><td>
+                    <input type="file" name="txtproof" >
                      </td>
                 </tr>
                 
-                <tr>
-                    <td>No Of Bathrooms</td><td>
-                        <input type="text" name="txtnobath" required=""   >
-                          </td>
-                </tr>
                
                 <tr>
                     <td>Property Description</td><td>
