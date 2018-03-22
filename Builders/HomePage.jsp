@@ -23,9 +23,27 @@
                 <%
             }
         %>
-        <h3 align="center"><a href="MyProfile.jsp">MyProfile</a></h3>
-        <h3 align="center"><a href="EditProfile.jsp">EditProfile</a></h3>
-        <h3 align="center"><a href="ChangePassword.jsp">Change Password</a></h3>
+         <h3 align="center"><a href="MyProfile.jsp">My Profile</a></h3>
+         <h3 align="center"><a href="EditProfile.jsp">Edit Profile</a></h3>
+         <br>
+          <h3 align="center"><a href="Constructions.jsp">Constructions</a></h3>
+         <h3 align="center"><a href="CompanySite.jsp">Company Site</a></h3>
+          <h3 align="center"><a href="ConstructionDetails.jsp">Add Construction Details</a></h3>
+          <br>
+        <h3 align="center"><a href="Gallery.jsp">Gallery Upload(Property)</a></h3>
+        <br>
+        <h3 align="center"><a href="NewUserBookingList.jsp">New Proposal for buying</a></h3>
+        <h3 align="center"><a href="NewRentBookingList.jsp">New Proposal for rent</a></h3>
+        <h3 align="center"><a href="NewLeaseBookingList.jsp">New Proposal for lease</a></h3>
         
+         <h3 align="center"><a href="#">View Accepted Proposal</a></h3>
+         <br>
+        <h3 align="center"><a href="#">Add new Technician vacancies </a></h3>
+        
+        
+         <h3 align="center"><a href="ChangePassword.jsp">Change Password</a></h3>
+        
+         
+         <h3 align="center"><a href="../Guest/Login.jsp">LogOut</a></h3>
     </body>
 </html>

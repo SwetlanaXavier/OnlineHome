@@ -1,6 +1,6 @@
 <%-- 
-    Document   : EditProfile
-    Created on : 22 Feb, 2018, 10:23:14 AM
+    Document   : EditProfileTech
+    Created on : 1 Mar, 2018, 10:31:15 AM
     Author     : Swetlana Xavier
 --%>
 <%@page import="java.sql.ResultSet"%>
@@ -11,34 +11,37 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Builders:EditProfile</title>
+        <title>JSP Page</title>
     </head>
     <body>
-                 <%
+        
+                  <%
     
-             String BuildersId="" , Bid=""; 
-            String BuildersName="" , BName="";
-            //String District="", Dis="";
+             String TechId="" , Tid=""; 
+            String TechName="" , TName="";
+           // String District="", Dis="";
             String Contact="" , Cno="";
             String Email="" ,ema="";
-            String Logo="", logo="";
+            String Photo="", pho="";
             String Address="", addr="";
             String Proof="", pro=""; 
+            //String TechType="", ttype="";
+            String Exper="", exp="";
    
-   
-
 if (request.getParameter("btn_submit") != null) {
                 
-                BuildersName=request.getParameter("txt_bname");
+                TechName=request.getParameter("txt_tname");
                 Contact=request.getParameter("txt_cno");
                 Email=request.getParameter("txt_email");
                 Address=request.getParameter("txt_adds");
-                //District=request.getParameter("seldistrict"); 
+               // District=request.getParameter("seldistrict"); 
+                //TechType=request.getParameter("seltechtype");
+                Exper=request.getParameter("txt_exp");
                  
    
     if(request.getParameter("hid")!=null)
     {
-        String up="update tbl_builders set builders_name='"+BuildersName+"',builders_address='"+Address+"',builders_contact='"+Contact+"',builders_emailid='"+Email+"' where builders_id='" +session.getAttribute("buildersid") + "' ";
+        String up="update tbl_technicians set technician_name='"+TechName+"',technician_address='"+Address+"',technician_contact='"+Contact+"',technician_email='"+Email+"', technician_experience='"+Exper+"' where technician_id='" +session.getAttribute("technicianid") + "' ";
         boolean b = obj.ExecuteCommand(up);
         if (b) {
             %>
@@ -61,41 +64,34 @@ if (request.getParameter("btn_submit") != null) {
                 } 
     
 }
- String selQry = "select * from tbl_builders where builders_id='" +session.getAttribute("buildersid") + "'";
+ String selQry = "select * from tbl_technicians where technician_id='" +session.getAttribute("technicianid") + "'";
                 ResultSet rs = obj.selectData(selQry);
                 while(rs.next())
 {
-  
-  
-                    //Bid=rs.getString("builders_id");
-                  BName=rs.getString("builders_name");
-                  addr=rs.getString("builders_address");
-                 
-                   Cno=rs.getString("builders_contact");
-                  ema=rs.getString("builders_emailid");
-                   //Dis=rs.getString("district_id");
-                  //logo=rs.getString("builders_logo");
+                  TName=rs.getString("technician_name");
+                  addr=rs.getString("technician_address");
+                   Cno=rs.getString("technician_contact");
+                  ema=rs.getString("technician_email");
+                  // Dis=rs.getString("district_id");
+                   //ttype=rs.getString("techniciantype_id");
+                  exp=rs.getString("technician_experience");
                   
-                  //pro=rs.getString("builders_proof"); 
- 
 }
-
-
-   %>
+%>
         
-        <h1><font color="blue"><center>Edit Profile</center></font></h1>
+       <h1><font color="blue"><center>Edit Profile</center></font></h1>
         
          <form name="frm_edit">
-              <input type="hidden" name="hid" value="<%=Bid%>">
+              <input type="hidden" name="hid" value="<%=Tid%>">
             
             <table class="table table-hover" align="center">
                 
                
                
                 <tr>
-                    <td>Builder Name</td>
+                    <td>Technician Name</td>
                     <td>
-                        <input type="text" name="txt_bname" value="<%=BName%>" >
+                        <input type="text" name="txt_tname" value="<%=TName%>" >
                     </td>
                 </tr>
                 <tr>
@@ -114,16 +110,21 @@ if (request.getParameter("btn_submit") != null) {
                     <input type="text" name="txt_email" value="<%=ema%>"  >
                      </td>
                 </tr>
-               
                 
+                
+                <tr>
+                    <td>Experience</td><td>
+                    <input type="text" name="txt_exp" value="<%=exp%>"  >
+                     </td>
+                </tr>
                 <tr><td colspan="2" align="center">
                         <input type="submit" name="btn_submit" value="SAVE">
                           <input type="submit"  formaction="HomePage.jsp" name="btn_reset" value="CANCEL">
                     </td></tr>
                
                         </table>
-                <a href="HomePage.jsp">back to homepage...</a>
+                     <a href="HomePage.jsp">back to home page...</a>
         </form>
-                    
+       
     </body>
 </html>
