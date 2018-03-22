@@ -21,7 +21,7 @@
            
     
         <%
-            if(request.getParameter("btnbooking")!=null)
+            if(request.getParameter("btnbooking")!=null )    
             {
                 String insert="insert into tbl_userbooking(userbooking_date,user_id,constructiondetails_id) values(curdate(),'"+session.getAttribute("userid")+"','"+session.getAttribute("cdetails")+"')";
                 boolean b=obj.ExecuteCommand(insert);
@@ -35,6 +35,7 @@
                     <%
                 }
             }
+            
             if(request.getParameter("btnrent")!=null)
             {
                 String insertRent="insert into tbl_rentapplication(user_id,constructiondetails_id,date) values('"+session.getAttribute("userid")+"','"+session.getAttribute("cdetails")+"',curdate())";
@@ -77,7 +78,20 @@
                 <tr>
                     <th colspan="2" align="center"><img style="width: 300px;height: 300px" src="../Builders/Construction/<%=rs.getString("construction_image")%> " height="150" width="150">
                 </tr>
-                <tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>
+                        <tr>
+                            <td  align="center">
+                     <%
+                   
+                   if ((rs.getString("construction_status").equals("1")))
+                       {  %>
+                            <td colspan="2"><font size="50" color="red">Sold Out</font></td>
+                     
+                       <%}
+                   %>
+                   
+                    </td>
+                        </tr>
+                        <tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>
                 <tr align="left">
                     <td colspan="2"><h4><%=rs.getString("construction_caption")%></h4></td>
   
@@ -118,17 +132,11 @@
      
                      <td><%=rs.getString("Description")%></td>
                 </tr>
-                   
-         
-              
+                  
                <%
-               
-             
-                
-            
             }
-        %><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>
-                                    
+        %>
+                                           
                      <tr><td colspan="2" align="center">
                              <input type="submit" name="btnbooking" value="Book Online">
                         <input type="submit" name="btnrent" value="Send Proposal for Rent">
