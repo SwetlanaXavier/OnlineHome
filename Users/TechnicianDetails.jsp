@@ -11,10 +11,10 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>#</title>
+        <title>Technician Details</title>
     </head>
     <body>
-        
+        <form name="frm_techdertails" >
          <table  align="center">
                         
         <tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>               
@@ -24,7 +24,7 @@
             if(request.getParameter("aid")!=null)
             {
             
-            
+             session.setAttribute("tid", request.getParameter("aid"));
             String selQry="select * from tbl_technicians t inner join tbl_district d on t.district_id = d.district_id inner join tbl_techniciantype tt on t.techniciantype_id = tt.techniciantype_id where technician_id="+request.getParameter("aid");
             ResultSet rs=obj.selectData(selQry);
             if(rs.next())
@@ -70,6 +70,10 @@
                 </tr>
                   <tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>
                                     
+                    <tr><td colspan="2" align="center">
+                             <input type="submit" name="btnsubmit" value="View Works" formaction="TechWorkList.jsp" >
+                        </td></tr>
+                                           
                                                      
   
                   <td><a href="ViewTechnicians.jsp">Back...</a></td>
@@ -84,6 +88,6 @@
             }
         %>
         </table>
- 
+        </form>
     </body>
 </html>

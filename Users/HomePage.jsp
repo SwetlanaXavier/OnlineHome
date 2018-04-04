@@ -24,12 +24,18 @@
                 <%
             }
         %>
-        
+        <h3 align="center"><a href="ViewProfile.jsp">View Profile</a></h3>
+        <h3 align="center"><a href="EditProfile.jsp">Edit Profile</a></h3><br>
         <h3 align="center"><a href="AddProperty.jsp">Add Property</a></h3>
+        <h3 align="center"><a href="ViewOwmProposal.jsp">View Own Proposal</a></h3><br>
+       
         <h3 align="center"><a href="ViewBuilders.jsp">View Builders</a></h3>
-        
         <h3 align="center"><a href="ViewTechnicians.jsp">View Technicians</a></h3>
-        <h3 align="center"><a href="ViewOwmProposal.jsp">View Owm Proposal</a></h3>
+        <h3 align="center"><a href="SellersWorkList.jsp">Purchase Property(4 Buying)</a></h3>
+        
+        <h3 align="center"><a href="ViewBookedList.jsp">View Booked List</a></h3>
+        
+        <h3 align="center"><a href="../Guest/Login.jsp">LogOut</a></h3>
         
     </body>
 </html>

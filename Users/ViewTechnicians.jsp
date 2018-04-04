@@ -16,7 +16,7 @@
     <body>
         
         <form name="frm_viewtech">
-                   <table class="table table-hover" align="center" border="0">
+                   <table border="0">
                        <tr>
                            
         <%

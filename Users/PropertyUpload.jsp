@@ -21,6 +21,12 @@
         <title>Property Upload</title>
     </head>
     <body>
+        <html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>File Upload - Construction</title>
+    </head>
+    <body>
         <%
             
             String field_name="";
@@ -28,7 +34,7 @@
 String file_name="";
 
 File savedFile=null;
-String fn="",pf="";
+String fn="";
 
 String field[] = new String[20];
 String value[]=new String[20];
@@ -84,7 +90,7 @@ if(isMultipart)
             
            file_name=f_item.getName();
            field_name=f_item.getFieldName();
-           if(field_name.equals("txtphoto"))
+           if(field_name.equals("txtimage"))
            {
            String ext=file_name.substring(file_name.lastIndexOf("."));
             //setting path to store image
@@ -93,7 +99,7 @@ if(isMultipart)
             Random r=new Random();
              int r_num=r.nextInt(1111)+999;
              System.out.println("ifff : "+fn);
-            fn="property_"+r_num+ext;
+            fn="Img_"+r_num+ext;
             //creating a file object
             savedFile=new File(file_path+fn);
             try
@@ -107,39 +113,11 @@ if(isMultipart)
                 out.println(ex);
             }
             }
-           
-           if(field_name.equals("txtproof"))
-           {
-           String ext=file_name.substring(file_name.lastIndexOf("."));
-            //setting path to store image
-            File proj_path=new File(config.getServletContext().getRealPath("/"));
-            String file_path=proj_path.getParentFile().getParentFile().getPath()+"\\web\\Users\\PropertyProof\\";
-            Random r=new Random();
-             int r_num=r.nextInt(1111)+999;
-             
-            pf="Proof_"+r_num+ext;
-            //creating a file object
-            savedFile=new File(file_path+pf);
-            try
-            {
-                //writing the file object
-                f_item.write(savedFile);               
-                
-            }
-            catch(Exception ex)
-            {
-                out.println(ex);
-            }
-            }
-           
-           
-              
        }
-           
            }
-    //Strinh str1="insert into tbl_user ()";
-    String str1="insert into tbl_property(property_image,constructiontype_id,district_id,property_placedetails,property_rate,property_sqft,property_description,property_proof)"
-            + "values('"+fn+"','"+value[0]+"','"+value[1]+"','"+value[2]+"','"+value[3]+"','"+value[4]+"','"+value[5]+"','"+pf+"')";
+       
+       String str1="insert into tbl_property(constructiontype_id,property_caption,property_address,property_number,property_details,property_image,user_id)"
+               + "values('"+value[0]+"','"+value[1]+"','"+value[2]+"','"+value[3]+"','"+value[4]+"','"+fn+"','"+session.getAttribute("userid") +"')";
   
    out.println(str1);
    
@@ -156,7 +134,7 @@ if(isMultipart)
     }
      }
 
-
    %>
+
     </body>
 </html>

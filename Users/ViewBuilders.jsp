@@ -14,61 +14,53 @@
         <title>View Builders</title>
     </head>
     <body>
-          
-    <form name="frm_viewbuilder">
-            
-                   <table class="table table-hover" align="center" border="1">
-             
-      <%
         
-        String Sel="select * from tbl_builders b inner join tbl_district d on b.district_id = d.district_id ";
-                    ResultSet rs=obj.selectData(Sel);
-                     while(rs.next())
-                     {
-                     %>
-                     <tr>
-                     <th>Builders Name</th>
-                     <td><%=rs.getString("builders_name")%></td>
-                     </tr>
-                     
-                     <tr>
-                          <th>Address</th>
-                           <td><%=rs.getString("builders_address")%></td>
-                     </tr>
-                     
-                     <tr>
-                         <th>Contact</th>
-                         <td><%=rs.getString("builders_contact")%></td>
-                     </tr>
-                     
-                     <tr>
-                         <th>Email</th>
-                          <td><%=rs.getString("builders_emailid")%></td>
-                     </tr>
-                     
-                   <tr>
-                       <th>District</th>
-                   <td><%=rs.getString("district_name")%></td>
-                   </tr>
-                   
-                   <tr>
-                       <th>logo</th>
-                   <td><img src="../Builders/Logo/<%=rs.getString("builders_logo")%>"></td>
-                   </tr>
-                   
-                   <tr>
-                       <th>Proof</th>
-                   <td><a href="ProofDownload.jsp?filename=<%=rs.getString("builders_proof")%>"><%=rs.getString("builders_proof")%></a></td>
-                   </tr>
-                   
-                   
-                  <%
-                              
-                                  }
+        
+        <form name="frm_viewbuilder">
+                   <table class="table table-hover" align="center" border="0">
+                       <tr>
+                           
+        <%
+          String BuildersId="";  
+          String BuildersName="";
+          String logo="";
+          String District="";
+          String Email="";
+          String Contact="";
+          String Address="";
+          
+            String selQry="select * from tbl_builders b inner join tbl_district d on b.district_id = d.district_id  where builders_status=1 ";
+            ResultSet rs =obj.selectData(selQry);
+                 int i=0;
+            while(rs.next())
+            {
+                BuildersId=rs.getString("builders_id");
+                BuildersName=rs.getString("builders_name");
+                District=rs.getString("district_name");
+                logo=rs.getString("builders_logo");
+                Email=rs.getString("builders_emailid");
+                Address=rs.getString("builders_address");
+                Contact=rs.getString("builders_contact");
+                
                   %>
-       
+                  
+                      <td><img style="width: 100px;height: 100px" src="../Builders/Logo/<%=rs.getString("builders_logo")%> ">
+                       <h3><%=BuildersName%></h3>
+                       <h3>Contact NO:<%=Contact%></h3>
+                       <h3>District:<%=District%></h3>
+                       <h3><a href="BuildersDetails.jsp?aid=<%=BuildersId%>">view more details...</a></h3>
+                   </td>
+                   <%
+                   i++;
+                   %>
+          <% }   
+        %>
+                    
+                   </tr>
+                   
                    </table>
-    </form>
-      
+        
+        </form>
+        
     </body>
 </html>

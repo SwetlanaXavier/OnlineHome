@@ -17,87 +17,58 @@
        
          <form name="frmProperty" action="PropertyUpload.jsp" method="post" enctype="multipart/form-data" >
             <table  align="center">
-                  <tr>
-                    <td>Property Name </td><td>
-                         <select name="property">
-                    <option value="selpro">--Select--</option>
-                    <%
-                        String selP="select *from tbl_constructiontype";
-                         ResultSet rs2=obj.selectData(selP);
-                        while(rs2.next())
-                        {
-                    %>
-                    <option value="<%=rs2.getString("constructiontype_id")%>" >
-                      <%=rs2.getString("constructiontype_type")%>      
-                      </option>
-                    <%
-                       }
-                    %>
-                </select>
-                    </td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Upload Photo</td><td>
-                    <input type="file" name="txtphoto" >
-                     </td>
-                </tr>
                 
                 <tr>
-                    <td>District</td><td>
-                         <select name="district">
-                    <option value="sel">--Select--</option>
+                    <td>Property Type</td><td>
+                         <select name="type">
+                    <option value="sel1">--Select--</option>
                     <%
-                        String sel="select *from tbl_district";
-                         ResultSet rs=obj.selectData(sel);
+                        String sel1="select *from tbl_constructiontype";
+                         ResultSet rs=obj.selectData(sel1);
                         while(rs.next())
                         {
                     %>
-                    <option value="<%=rs.getString("district_id")%>" >
-                      <%=rs.getString("district_name")%>      
+                    <option value="<%=rs.getString("constructiontype_id")%>" >
+                      <%=rs.getString("constructiontype_type")%>      
                       </option>
                     <%
                        }
                     %>
                 </select>
                     </td></tr>
+                 
+                 <tr>
+                    <td>Property Caption:</td><td>
+                    <input type="text" name="txtcap" >
+                     </td>
+                </tr>
                 <tr>
                     <td>Place Details</td><td>
-                        <Textarea name="txtplace" required="" placeholder="Enter place address"  >     </textarea>   
+                        <Textarea name="txtaddr" required="" placeholder="Enter place address"  >     </textarea>   
           </td>
                 </tr>
                 <tr>
-                    <td>Rate</td><td>
-                    <input type="text" name="txtrate" required="" placeholder="Enter the rate"  >
+                    <td>Property Number</td><td>
+                    <input type="text" name="txtnumber" required="" >
                      </td>
                 </tr>
-                
-                 <tr>
-                    <td>Total area</td>
-                    <td>
-                    <input type="text" name="txtarea" required="" placeholder="Enter Number"  >
-                     </td>
-                </tr>
-                    </td>
-                </tr>
-               <tr>
-                    <td>Upload Proof</td><td>
-                    <input type="file" name="txtproof" >
-                     </td>
-                </tr>
-                
-               
                 <tr>
                     <td>Property Description</td><td>
-                    <Textarea name="txtpdes" required="" placeholder="Enter property details" ></textarea>
+                    <Textarea name="txtpdet" ></textarea>
+                     </td>
+                </tr>  
+                <tr>
+                    <td>Upload Photo</td><td>
+                    <input type="file" name="txtimage" >
                      </td>
                 </tr>
-                
+               
               <tr><td colspan="2" align="center">
                         <input type="submit" name="btnsubmit" value="SUBMIT">
                           <input type="reset" name="btnreset" value="CANCEL">
                     </td></tr>
             </table>
+                <a href="PropertyDetails.jsp">Add more details</a>
         </form>
     </body>
 </html>

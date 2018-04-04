@@ -19,7 +19,9 @@
         <tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>               
           
         <%
-        
+                    if(request.getParameter("aid")!=null)
+            {
+            
                     String Sel="select * from tbl_property p inner join tbl_district d on p.district_id = d.district_id inner join tbl_constructiontype t on p.constructiontype_id = t.constructiontype_id where property_id="+request.getParameter("aid");
                     ResultSet rs=obj.selectData(Sel);
                      while(rs.next())
@@ -78,8 +80,12 @@
              
                 
             }
-                    %>
+            }
+        %>
         </table>
- 
+        <a href="NewBuyerLeaseApplication.jsp">Approval for lease</a>
+        <a href="NewBuyerRentApplication.jsp">Approval for rent</a>
+        <a href="NewBuyerPropertyApplication.jsp">Approval for buying</a>
+
     </body>
 </html>
