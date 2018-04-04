@@ -111,8 +111,7 @@
             <tr>
                 <th>slno</th>
                 <th>District Name</th>
-                
-
+               
             </tr>
     
         <%
