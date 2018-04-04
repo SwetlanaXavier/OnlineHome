@@ -15,13 +15,15 @@
     </head>
     <body>
         <%
-         if(request.getParameter("BId")!=null)
+         if(request.getParameter("BId")!=null&&request.getParameter("conid")!=null)
         {
           String updateApproval="update tbl_userbooking set status=1 where userbooking_id='"+request.getParameter("BId")+"'";
           boolean b=obj.ExecuteCommand(updateApproval);
+          String update="update tbl_construction set construction_status=1 where construction_id="+request.getParameter("conid");
+          obj.ExecuteCommand(update);
           if(b)
           {
-              response.sendRedirect("NewUserBookingList.jsp");
+//              response.sendRedirect("NewUserBookingList.jsp");
           }
           else
           {
@@ -84,7 +86,7 @@
                     <td><%=rs.getString("user_contact")%></td>
                    <td><%=rs.getString("user_emailid")%></td>
 
-                     <td><a href="NewUserBookingList.jsp?BId=<%=rs.getString("userbooking_id")%>">APPROVE</a></td>
+                     <td><a href="NewUserBookingList.jsp?BId=<%=rs.getString("userbooking_id")%>&&conid=<%=rs.getString("construction_id")%>">APPROVE</a></td>
                      <td><a href="NewUserBookingList.jsp?Did=<%=rs.getString("userbooking_id")%>">REJECT</a></td></tr>
 
                   <%

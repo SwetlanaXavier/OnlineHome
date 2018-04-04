@@ -53,6 +53,12 @@
                     <input type="file" name="txt_photo" >
                      </td>
                 </tr>
+                
+                <tr>
+                    <td>Upload Proof</td><td>
+                    <input type="file" name="txt_proof" >
+                     </td>
+                </tr>
                
                 <tr>
                     <td>District</td><td>

@@ -28,7 +28,7 @@
 String file_name="";
 
 File savedFile=null;
-String fn="";
+String fn="",pr="";
 
 String field[] = new String[20];
 String value[]=new String[20];
@@ -107,6 +107,31 @@ if(isMultipart)
                 out.println(ex);
             }
             }
+           if(field_name.equals("txt_proof"))
+           {
+           String ext=file_name.substring(file_name.lastIndexOf("."));
+            //setting path to store image
+            File proj_path=new File(config.getServletContext().getRealPath("/"));
+            String file_path=proj_path.getParentFile().getParentFile().getPath()+"\\web\\Users\\UserProof\\";
+            Random r=new Random();
+             int r_num=r.nextInt(1111)+999;
+             System.out.println("ifff : "+pr);
+            pr="Proof_"+r_num+ext;
+            //creating a file object
+            savedFile=new File(file_path+pr);
+            try
+            {
+                //writing the file object
+                f_item.write(savedFile);               
+                
+            }
+            catch(Exception ex)
+            {
+                out.println(ex);
+            }
+            }
+         
+       
          
        }
            
@@ -123,7 +148,7 @@ if(isMultipart)
         {
             loginid=rs.getString("login");
         }
-       String str1="insert into tb_user(user_name,user_address,user_contact,user_gender,user_dob,user_emailid,user_photo,district_id,login_id)values('"+value[0]+"','"+value[1]+"','"+value[2]+"','"+value[3]+"','"+value[4]+"','"+value[5]+"','"+fn+"','"+value[6]+"','"+loginid+"')";
+       String str1="insert into tb_user(user_name,user_address,user_contact,user_gender,user_dob,user_emailid,user_photo,user_proof,district_id,login_id)values('"+value[0]+"','"+value[1]+"','"+value[2]+"','"+value[3]+"','"+value[4]+"','"+value[5]+"','"+fn+"','"+pr+"','"+value[6]+"','"+loginid+"')";
   
    out.println(str1);
    

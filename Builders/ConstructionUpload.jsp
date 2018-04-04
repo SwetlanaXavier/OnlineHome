@@ -107,12 +107,9 @@ if(isMultipart)
                 out.println(ex);
             }
             }
-           
-             
        }
-           
            }
-    //Strinh str1="insert into tbl_user ()";
+       
        String str1="insert into tbl_construction(constructiontype_id,construction_caption,builders_id,construction_address,construction_number,construction_detail,construction_image)"
                + "values('"+value[0]+"','"+value[1]+"','"+session.getAttribute("buildersid") +"','"+value[2]+"','"+value[3]+"','"+value[4]+"','"+fn+"')";
   

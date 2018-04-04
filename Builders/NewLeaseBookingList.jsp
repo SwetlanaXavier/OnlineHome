@@ -17,7 +17,7 @@
         <%
          if(request.getParameter("BId")!=null)
         {
-          String updateApproval="update tbl_leaseapplication set status=1 where leaseapply_id='"+request.getParameter("BId")+"'";
+          String updateApproval="update tbl_leaseapplication set leaseapply_status=1 where leaseapply_id='"+request.getParameter("BId")+"'";
           boolean b=obj.ExecuteCommand(updateApproval);
           if(b)
           {
@@ -30,7 +30,7 @@
         }
          if(request.getParameter("Did")!=null)
         {
-          String updateReject="update tbl_leaseapplication set status=2 where leaseapply_id='"+request.getParameter("Did")+"'";
+          String updateReject="update tbl_leaseapplication set leaseapply_status=2 where leaseapply_id='"+request.getParameter("Did")+"'";
           boolean b2=obj.ExecuteCommand(updateReject);
           if(b2)
           {
